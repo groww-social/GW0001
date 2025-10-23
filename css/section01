@@ -1,0 +1,89 @@
+  .hero {
+                    padding: 100px 0;
+                    text-align: center;
+                    overflow: hidden;
+                    position: relative;
+                    background: radial-gradient(circle at top, rgba(255, 59, 48, 0.05) 0%, var(--color-dark-bg) 50%);
+                }
+                .hero h1 {
+                    font-size: clamp(2.5rem, 6vw, 4.5rem);
+                    font-weight: 900;
+                    margin-bottom: 16px;
+                    line-height: 1.1;
+                    background: linear-gradient(180deg, var(--color-text-white) 0%, var(--color-text-gray) 100%);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    background-clip: text;
+                }
+                .hero h1 span {
+                    color: var(--color-ios-red);
+                    -webkit-text-fill-color: var(--color-ios-red);
+                    background: none;
+                }
+                .hero p {
+                    font-size: 1.25rem;
+                    color: var(--color-text-gray);
+                    max-width: 600px;
+                    margin: 0 auto 40px;
+                }
+                /* Dynamic Order Flow Monitor */
+                .dynamic-monitor {
+                    font-family: 'Cutive', serif;
+                    margin: 40px auto;
+                    width: 100%;
+                    max-width: 400px;
+                    height: 120px;
+                    background-color: var(--color-surface-bg);
+                    border-radius: var(--border-radius-md);
+                    border: 1px solid rgba(255, 255, 255, 0.1);
+                    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+                    overflow: hidden;
+                    position: relative;
+                }
+                .monitor-content {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    height: 300%; 
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    animation: flow-cycle 9s infinite ease-in-out; 
+                    will-change: transform;
+                }
+                .monitor-item {
+                    height: 120px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    padding: 10px 0;
+                }
+                .monitor-item i {
+                    font-size: 1.5rem;
+                    color: var(--color-ios-red);
+                    margin-bottom: 5px;
+                }
+                .monitor-metric {
+                    font-size: 1.8rem;
+                    font-weight: 800;
+                    color: var(--color-text-white);
+                }
+                .monitor-label {
+                    font-size: 0.8rem;
+                    color: var(--color-text-gray);
+                    text-transform: uppercase;
+                }
+                @keyframes flow-cycle {
+                    0% { transform: translateY(0); } 
+                    25% { transform: translateY(0); }
+                    33% { transform: translateY(-33.33%); } 
+                    58% { transform: translateY(-33.33%); }
+                    66% { transform: translateY(-66.66%); } 
+                    91% { transform: translateY(-66.66%); }
+                    100% { transform: translateY(0); } 
+                }
+                @media (max-width: 900px) {
+                    .hero { padding: 60px 0; }
+                }
