@@ -1,1 +1,334 @@
 
+article {
+  position: relative;
+  left: -45px;
+  width: 115%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  
+}
+          
+      article .sectionWrapper {    
+        width: 100%;    
+        display: flex;    
+        flex-direction: column;    
+        align-items: center;    
+        justify-content: flex-start;    
+        padding: 0 20px;
+      }    
+          
+      article #_boxes {    
+        width: 100%;    
+        max-width: 1265px;    
+        display: flex;    
+        flex-direction: column;    
+        align-items: center;    
+        justify-content: center;    
+        padding: 25px 0;
+      }    
+          
+      article #_boxes ul {    
+        width: 100%;    
+        display: flex;    
+        flex-direction: row;    
+        align-items: stretch;    
+        justify-content: space-between;    
+        flex-wrap: wrap;    
+        row-gap: 25px;
+      }    
+          
+      article #_boxes ul li {    
+        width: calc((100% / 4) - 15px); /* Changed to 4 columns for modern look */
+        position: relative;    
+        display: flex;    
+        flex-direction: column;    
+        align-items: center;    
+        justify-content: center;    
+        padding: 25px;    
+        border-radius: 8px;    
+        z-index: 1;    
+        overflow: visible;
+      }    
+          
+      article #_boxes ul li:nth-child(1) {    
+        --cardAccent: #3f9f47; /* Green */
+      }    
+          
+      article #_boxes ul li:nth-child(2) {    
+        --cardAccent: #ff3636; /* Red */
+      }    
+          
+      article #_boxes ul li:nth-child(3) {    
+        --cardAccent: #00a9ff; /* Blue */
+      }    
+          
+      article #_boxes ul li:nth-child(4) {
+        --cardAccent: #ff9900; /* Orange */
+      }
+      
+      @media (min-width: 1265px) {
+          article #_boxes ul li {
+              width: calc((100% / 4) - 15px);
+          }
+      }
+          
+      /* Pseudo element for the glow effect */
+      article #_boxes ul li::after {    
+        position: absolute;    
+        width: calc(100% - 50px);    
+        height: calc(100% - 50px);    
+        z-index: -2;    
+        border-radius: 8px;    
+        background: transparent;    
+        /* NOTE: drop-shadow and hue-rotate are performance intensive */
+        filter: drop-shadow(0px 0px 35px var(--cardAccent)) hue-rotate(0deg);    
+        content: "";
+      }    
+          
+      article #_boxes ul li:nth-child(1)::after {    
+        animation: hue-rotate-special 7s linear infinite reverse;
+      }    
+          
+      article #_boxes ul li:nth-child(2)::after {    
+        animation: hue-rotate-special 9s linear infinite;
+      }    
+          
+      article #_boxes ul li:nth-child(3)::after {    
+        animation: hue-rotate-special 5s linear infinite alternate-reverse;
+      }    
+          
+      article #_boxes ul li:nth-child(4)::after {
+        animation: hue-rotate-special 6s linear infinite;
+      }
+          
+      @keyframes hue-rotate-special {    
+        to {    
+          filter: drop-shadow(0px 0px 35px var(--cardAccent)) hue-rotate(360deg);
+        }
+      }    
+          
+      /* SVG border styles */
+      article #_boxes ul li svg {    
+        position: absolute;  
+        inset: 0;    
+        width: 102%;    
+        height: 96%;    
+        pointer-events: none;    
+        z-index: -1;
+      }    
+          
+      article #_boxes ul li:nth-child(1) svg {    
+        stroke-dasharray: 331 66;    
+        animation: dash 7s linear infinite reverse;
+      }    
+          
+      article #_boxes ul li:nth-child(2) svg {    
+        stroke-dasharray: 307 131;    
+        animation: dash2 9s linear infinite;
+      }    
+          
+      article #_boxes ul li:nth-child(3) svg {    
+        stroke-dasharray: 309 154;    
+        animation: dash3 5s linear infinite alternate-reverse;
+      }    
+          
+      article #_boxes ul li:nth-child(4) svg {
+        stroke-dasharray: 307 131;
+        animation: dash4 6s linear infinite;
+      }
+          
+      @keyframes dash {    
+        to {    
+          stroke-dashoffset: -397px;    
+          filter: hue-rotate(360deg);
+        }
+      }    
+          
+      @keyframes dash2 {    
+        to {    
+          stroke-dashoffset: -438px;    
+          filter: hue-rotate(360deg);
+        }
+      }    
+          
+      @keyframes dash3 {    
+        to {    
+          stroke-dashoffset: -463px;    
+          filter: hue-rotate(360deg);
+        }
+      }    
+          
+      @keyframes dash4 { 
+        to {
+          stroke-dashoffset: -438px;
+          filter: hue-rotate(360deg);
+        }
+      }
+          
+      /* Figure Content Styling */
+      article #_boxes ul li figure {    
+        position: relative;    
+        background-color: #ccc;    
+        border-radius: 8px;    
+        width: 100%;    
+        display: flex; 
+        flex-direction: column; 
+        align-items: flex-start;    
+        justify-content: space-between; 
+        padding: 35px;    
+        z-index: 1;
+        height: 140px; 
+      }    
+
+      /* Stat Number Styling */
+      .stat-number {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-family: 'Cutive', serif;
+        font-weight: 900;
+        color: #222;
+        margin-bottom: 5px;
+        min-height: 45px; 
+        display: block;
+        line-height: 1.1;
+      }
+
+      /* Stat Label Styling */
+      .stat-label {
+        color: #555;
+        font-weight: 600;
+        font-size: clamp(0.8rem, 1vw, 1.1rem);
+        text-transform: uppercase;
+        margin-bottom: 25px; 
+      }
+
+          
+      article #_boxes ul li figure::after {    
+        position: absolute;    
+        top: -15px;    
+        right: -15px;    
+        width: 70px;    
+        height: 70px;    
+        border: 20px solid var(--cardAccent);    
+        border-radius: 100%;    
+        pointer-events: none;    
+        z-index: 1;    
+        content: "";
+      }    
+          
+      /* Link Button Styles */
+      article #_boxes ul li figure a {    
+        position: relative;    
+        display: flex;    
+        flex-direction: row;    
+        align-items: center;    
+        justify-content: space-between;    
+        background-color: var(--cardAccent);    
+        padding: 7px 17px;    
+        cursor: pointer;    
+        border-radius: 4px;    
+        overflow: hidden;    
+        z-index: 1;
+        align-self: flex-end; 
+        margin-top: auto; 
+      }    
+          
+      article #_boxes ul li figure a::after {    
+        position: absolute;    
+        right: calc(100% + 1px);    
+        bottom: 0;    
+        width: 100%;    
+        height: 100%;    
+        background-color: black;    
+        border-radius: 4px;    
+        transition: all 0.3s ease;    
+        z-index: -1;    
+        content: "";
+      }    
+          
+      article #_boxes ul li figure a:hover::after {    
+        right: 0;    
+        transition: all 0.3s ease;
+      }    
+          
+      article #_boxes ul li:nth-child(1) figure a,    
+      article #_boxes ul li:nth-child(1) figure::after {    
+        animation: hue-rotate 7s linear infinite reverse;
+      }    
+          
+      article #_boxes ul li:nth-child(2) figure a,    
+      article #_boxes ul li:nth-child(2) figure::after {    
+        animation: hue-rotate 9s linear infinite;
+      }    
+          
+      article #_boxes ul li:nth-child(3) figure a,    
+      article #_boxes ul li:nth-child(3) figure::after {    
+        animation: hue-rotate 5s linear infinite alternate-reverse;
+      }    
+          
+      article #_boxes ul li:nth-child(4) figure a,
+      article #_boxes ul li:nth-child(4) figure::after {
+        animation: hue-rotate 6s linear infinite;
+      }
+          
+      @keyframes hue-rotate {    
+        to {    
+          filter: hue-rotate(360deg);
+        }
+      }    
+          
+      article #_boxes ul li figure a em {    
+        color: white;    
+        font-weight: 500;    
+        margin-right: 10px;
+      }    
+          
+      article #_boxes ul li figure a i {    
+        display: flex;    
+        flex-direction: row;    
+        align-items: center;    
+        justify-content: space-between;    
+        color: white;    
+        position: relative;    
+        top: 1px;    
+        transition: all 0.3s ease;
+      }    
+          
+      article #_boxes ul li figure a:hover i {    
+        margin-left: 10px;    
+        transition: all 0.3s ease;
+      }    
+          
+     
+@media (min-width: 1265px) {  
+  article #_boxes ul {
+    justify-content: center;
+    gap: 0px;
+  }
+
+  article #_boxes ul li {
+    width: calc((160% / 5));
+    margin: 0 auto;
+    left: -100px;
+  }
+
+  .dsk-lst {
+    display: none !important;
+  }
+  
+  .stat-number { 
+        position: relative;
+        top: -20px;
+        left: -20px;
+        margin-bottom: 25px;
+      } 
+      
+}
+
+  
+      @media (max-width: 768px) {    
+        article #_boxes ul li {    
+          width: 100%; /* 1 column on mobile */
+        }
+      }
